@@ -1,9 +1,9 @@
 import gspread
 from google.oauth2.service_account import Credentials
 """
-#this import all intire gspread library   
-#thi import all credintials class wich is part from service_account function 
-# from the google auth library 
+#this import all intire gspread library
+#thi import all credintials class wich is part from service_account function
+# from the google auth library
 """
 
 SCOPE = [
@@ -25,20 +25,21 @@ def get_sales_data():
     """
     print("Please enter sales data from the last market.")
     print("Data should be six numbers, separted by commas.")
-    print("Exemple: 10, 20, 30, 40, 50, 60\n")  
-    
+    print("Exemple: 10, 20, 30, 40, 50, 60\n")
+
     data_str = input("Enter your data here:")
     """
-     # use input() method to get our 
+     # use input() method to get our
      #sale data from the users to the terminal
-     #(print(f"The data provide is {data_str}"))will print the data_str 
+     #(print(f"The data provide is {data_str}"))will print the data_str
      # provided back to the terminal(to check function)
     """
-     
-    sales_data = data_str.split(",") 
+
+    sales_data = data_str.split(",")
     """
      # split(",") method retuns the broken up values as a list
-     # (print(sales_data)) to check sales_data function if is returning as a list
+     # (print(sales_data)) to check sales_data function if is
+     # returning as a list
     """
     validate_data(sales_data)
 
@@ -60,9 +61,9 @@ def validate_data(values):
             raise ValueError(
                 f"Exactly 6 values required, you provide {len(values)}"
             )
-    except ValueError as e: 
+    except ValueError as e:
         """
-          # we are assigning that ValueError object to e 
+          # we are assigning that ValueError object to e
           # variable is stantard Python shorthand for "error"
         """
         print(f"Invalid data: {e}, please try again.\n")
