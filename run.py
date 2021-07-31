@@ -1,6 +1,10 @@
-# python code goes here
-import gspread # this import all intire gspread library 
-from google.oauth2.service_account import Credentials # thi import all credintials class wich is part from service_account function from the google auth library 
+import gspread
+from google.oauth2.service_account import Credentials
+"""
+#this import all intire gspread library   
+#thi import all credintials class wich is part from service_account function 
+# from the google auth library 
+"""
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -13,35 +17,55 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_sandwiches')
 
-def get_sales_data():# this function colect sale data from our users
-     """
-     Get sales figures input from the users
-     """
-     print("Please enter sales data from the last market.")
-     print("Data should be six numbers, separted by commas.")
-     print("Exemple: 10, 20, 30, 40, 50, 60\n") # using \n for space betwen new line
 
-     data_str = input("Enter your data here:") # use input() method to get our sale data from the users to the terminal
-     #(print(f"The data provide is {data_str}"))will print the data_str provided back to the terminal(to check function)
+def get_sales_data():
+    """
+    Get sales figures input from the users
+    this function colect sale data from our users
+    """
+    print("Please enter sales data from the last market.")
+    print("Data should be six numbers, separted by commas.")
+    print("Exemple: 10, 20, 30, 40, 50, 60\n")  
+    
+    data_str = input("Enter your data here:")
+    """
+     # use input() method to get our 
+     #sale data from the users to the terminal
+     #(print(f"The data provide is {data_str}"))will print the data_str 
+     # provided back to the terminal(to check function)
+    """
      
-     sales_data = data_str.split(",") # split(",") method retuns the broken up values as a list
+    sales_data = data_str.split(",") 
+    """
+     # split(",") method retuns the broken up values as a list
      # (print(sales_data)) to check sales_data function if is returning as a list
-     validate_data(sales_data)
+    """
+    validate_data(sales_data)
+
 
 def validate_data(values):
     """
     Inside the try, convert all string values into integers.
     Raises ValueError if strings can not be converted into int,
     or if there aren't exactly 6 values.
+    #(print(values)) check if validate_data function is working
     """
-    
-   #(print(values)) check if validate_data function is working
     try:
-        [int(value) for value in values] # convert each value from our value list into in integer
-        if len(values) != 6: #value list has to beexacly 6 values
+        [int(value) for value in values]
+        """
+         # convert each value from our value list into in integer
+          # value list has to beexacly 6 values
+         """
+        if len(values) != 6:
             raise ValueError(
                 f"Exactly 6 values required, you provide {len(values)}"
             )
-    except ValueError as e: # we are assigning that ValueError object to e variable is stantard Python shorthand for "error"
+    except ValueError as e: 
+        """
+          # we are assigning that ValueError object to e 
+          # variable is stantard Python shorthand for "error"
+        """
         print(f"Invalid data: {e}, please try again.\n")
+
+
 get_sales_data()
