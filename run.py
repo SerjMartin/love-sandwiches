@@ -23,25 +23,31 @@ def get_sales_data():
     Get sales figures input from the users
     this function colect sale data from our users
     """
-    print("Please enter sales data from the last market.")
-    print("Data should be six numbers, separted by commas.")
-    print("Exemple: 10, 20, 30, 40, 50, 60\n")
+    while True:
+        print("Please enter sales data from the last market.")
+        print("Data should be six numbers, separted by commas.")
+        print("Exemple: 10, 20, 30, 40, 50, 60\n")
 
-    data_str = input("Enter your data here:")
-    """
-     # use input() method to get our
-     #sale data from the users to the terminal
-     #(print(f"The data provide is {data_str}"))will print the data_str
-     # provided back to the terminal(to check function)
-    """
+        data_str = input("Enter your data here:")
+        """
+         # use input() method to get our
+         #sale data from the users to the terminal
+         #(print(f"The data provide is {data_str}"))will print the data_str
+         # provided back to the terminal(to check function)
+        """
 
-    sales_data = data_str.split(",")
-    """
-     # split(",") method retuns the broken up values as a list
-     # (print(sales_data)) to check sales_data function if is
-     # returning as a list
-    """
-    validate_data(sales_data)
+        sales_data = data_str.split(",")
+        """
+         # split(",") method retuns the broken up values as a list
+         # (print(sales_data)) to check sales_data function if is
+         # returning as a list
+        """
+
+        if validate_data(sales_data):
+            print("Data is valid")
+            break
+
+    return sales_data
 
 
 def validate_data(values):
@@ -67,6 +73,9 @@ def validate_data(values):
           # variable is stantard Python shorthand for "error"
         """
         print(f"Invalid data: {e}, please try again.\n")
+        return False
+
+    return True
 
 
-get_sales_data()
+data = get_sales_data()
