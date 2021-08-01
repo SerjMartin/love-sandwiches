@@ -106,11 +106,17 @@ def calculate_surplus_data(sales_row):
     stock_row = stock[-1]
     """
      stock_row will extract the last row from the stock worksheet
-    """
-    pprint(stock_row)
-    """
+     pprint(stock_row) ysed to check function
      pprint hat to be instaled on the file to
     """
+    surplus_data = []
+    for stock, sales in zip(stock_row, sales_row):
+        surplus = int(stock) - sales
+        surplus_data.append(surplus)
+    """
+     print(surplus_data) used to check the function
+    """
+    return surplus_data
 
 
 def main():
@@ -119,8 +125,12 @@ def main():
     """
     data = get_sales_data()
     sales_data = [int(num) for num in data]
+    """
+     used int() method to convert num data to integer
+    """
     update_sales_worksheet(sales_data)
-    calculate_surplus_data(sales_data)
+    new_surplus_data = calculate_surplus_data(sales_data)
+    print(new_surplus_data)
     """
      Call out the function (update_sales_worksheet(data))
      and pas it sales_data list
