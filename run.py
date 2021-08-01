@@ -1,6 +1,5 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
 """
 #this import all intire gspread library
 #thi import all credintials class wich is part from service_account function
@@ -33,9 +32,10 @@ def get_sales_data():
         print("Data should be six numbers, separted by commas.")
         print("Exemple: 10, 20, 30, 40, 50, 60\n")
 
-        data_str = input("Enter your data here:")
+        data_str = input("Enter your data here:\n")
         """
          # use input() method to get our
+         # very important use \n at input when deploy the project
          #sale data from the users to the terminal
          #(print(f"The data provide is {data_str}"))will print the data_str
          # provided back to the terminal(to check function)
